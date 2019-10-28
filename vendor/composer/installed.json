@@ -1,0 +1,90 @@
+[
+    {
+        "name": "developercielo/api-3.0-php",
+        "version": "1.3.0",
+        "version_normalized": "1.3.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/DeveloperCielo/API-3.0-PHP.git",
+            "reference": "0d442fc13fff22a2304e0f182bb92d396fc2b65a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/DeveloperCielo/API-3.0-PHP/zipball/0d442fc13fff22a2304e0f182bb92d396fc2b65a",
+            "reference": "0d442fc13fff22a2304e0f182bb92d396fc2b65a",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "ext-json": "*",
+            "php": ">=5.6",
+            "psr/log": "^1.1"
+        },
+        "suggest": {
+            "monolog/monolog": "Allows more advanced logging of the application flow"
+        },
+        "time": "2019-09-18T16:13:53+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Cielo": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Integração com a API 3.0 da Cielo",
+        "homepage": "https://github.com/DeveloperCielo/API-3.0-PHP"
+    },
+    {
+        "name": "psr/log",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/php-fig/log.git",
+            "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/php-fig/log/zipball/bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+            "reference": "bf73deb2b3b896a9d9c75f3f0d88185d2faa27e2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2019-10-25T08:06:51+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Psr\\Log\\": "Psr/Log/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "PHP-FIG",
+                "homepage": "http://www.php-fig.org/"
+            }
+        ],
+        "description": "Common interface for logging libraries",
+        "homepage": "https://github.com/php-fig/log",
+        "keywords": [
+            "log",
+            "psr",
+            "psr-3"
+        ]
+    }
+]

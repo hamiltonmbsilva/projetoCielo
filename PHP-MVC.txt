@@ -1,0 +1,207 @@
+##########AUTOLOAD##########
+##########Ou index##########
+#####Na raiz do sistema#####
+<?php 
+require 'config.php';
+
+spl_autoload_register(function($class){
+    if(strpos($class, 'Controller')> -1){
+        if(file_exists('controllers/'.$class.'.php')){
+	    require_once 'controllers/'.$class.'.php';
+        }
+    }elseif(file_exists('models/'.$class.'.php')){
+	require_once 'models/'.$class.'.php';
+    }else{
+	require_once 'core/'.$class.'.php';
+    }
+});
+$core = new Core();
+$core->run():
+?>
+#####ENVIRONMENT#####
+####Ainda na raiz####
+<?php
+define("ENVIRONMENT", "development");
+?>
+########CONFIG##########
+<?php
+require 'environment.php';
+
+define("BASE_URL", "http://localhos/seuProjeto");//Constante Base do sistema
+
+global $config;
+$config = array();
+if(ENVIRONMENT == "development"){
+   $config['dbname'] = 'nomeDoBanco';
+   $config['host']   = 'localhost';
+   $config['dbuser'] = 'nomeUsuario';
+   $config['dbpass'] = 'senha'; 
+}else{
+   $config['dbname'] = 'nomeDoBanco';
+   $config['host']   = 'localhost';
+   $config['dbuser'] = 'nomeUsuario';
+   $config['dbpass'] = 'senha';
+}
+
+?>
+##########CORE##########
+#####Dentro da pasta core#####
+<?php
+class Core{
+    public function run(){
+	/*$url = explode("index.php", $_SERVER['PHP_SELF']);
+	$url = end($url);*/
+	
+	$url = '/'.((isset($_GET['q']))?$_GET['q']:'');
+	
+	$params = array();	
+	if(!empty($url) && $url != '/'){
+	    $url = explode('/',$url);
+	    array_shift($url);
+
+	    $currentController = $url[0].'Controller';
+	    array_shift($url);
+
+	    if(isset($url[0]) && !empty($url[0])){
+		$currentAction = $url[0];
+		array_shift($url);
+	    }else{
+	        $currentAction = 'index';
+	    }
+	    if(count($url) > 0){	
+		$params = $url;
+	    }
+	}else{
+	    $currentController = 'homeController';
+	    $currentAction = 'index';	    
+	}
+	require_once 'core/controller.php';
+	$c = new $currentController();
+	call_user_func_array(array($c, $currentAction), $params);
+    }
+}
+?>
+#########CONTROLLER#########
+#####Dentro da pasta core#####
+<?php
+class Controller{
+    protected $db;
+
+    public function __construct(){
+        global $config;
+        $this->db = new PDO("mysql:dbname=".$config['dbname'].';host='.$config['host'],
+        $config['dbuser'],$config['dbpass']);	
+    }
+    public function loadView($viewName, $viewData = array()){
+	extract($viewData);
+	include 'views/'.$viewName.'.php';
+    }
+
+    public function loadTemplate($viewName, $viewData = array()){
+	include 'views/template.php';
+    }
+    public function loadViewInTemplate($viewName, $viewData = array()){
+	extract($viewData);
+	include 'views/'.$viewName.'.php';
+    }
+}
+?>
+########MODEL########
+######Ainda na pasta core######
+<?php
+class model{
+    protected $db;
+
+    public function __construct(){
+        global $config;
+        $this->db = new PDO("mysql:dbname=".$config['dbname'].';host='.$config['host'],
+        $config['dbuser'],$config['dbpass']);	
+    }
+}
+
+?>
+#########CONTROLLER##########
+#####Dentro da pasta controllers#####
+<?php
+class homeController extends controller{
+    public function index(){
+	$usuario = new usuario();//Instanciando o model
+	$usuario->setName('Coloque o nome aqui');//Setando o nome do usuario
+	//echo "O nome será exibido na tela ".$usuario->getName();
+
+	$dados = array(
+	    'name' => $usuario->getName()
+	);
+	$this->loadTemplate('home',$dados);
+    }
+}
+?>
+#########MODEL##########
+#####Dentro da pasta models#####
+<?php
+class usuario extends model{
+    public function __construct(){
+        parent::__construct();
+    }	
+    private $name;
+    public function setName($n){
+	$this->name = $n;
+    }
+    public function getName(){
+	return $this->name;
+    }
+}
+?>
+##########VIEW##########
+#####Dentro da pasta view#####
+<h1>Qualque code HTML aqui e quem fez <?php echo $name; ?></h1>
+
+#####Template#####
+#############################
+#  Dentro do template       #
+#  vai toda parte           # 
+#  de HTML                  # 
+#                           #
+#############################
+
+<?php $this->loadViewInTemplate($viewName, $viewData);?>
+
+################.HTACCESS##########################
+#RewriteEngine On                                 # 
+#RewriteCond %{REQUEST_FILENAME}!-f               #
+#RewriteCond %{REQUEST_FILENAME}!-d               #
+#RewriteRule ^(.*)$ /pasta/index.php?q=$1 [QSA,L] #
+###################################################
+
+###############################
+# Criar a estrutura de pastas #
+# 1-assets                    #
+# Dentro de assets            #
+# 2-css                       #  
+# 3-images                    #
+# 4-js                        #
+###############################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
