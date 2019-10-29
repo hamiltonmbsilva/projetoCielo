@@ -73,19 +73,25 @@ class cieloController extends controller{
                 //$paymentid recupera o id
                 $paymentId = $sale->getPayment()->getPaymentId();
 
-                echo $sale->getPayment()->getStatus();
-                echo "-";
-                echo $sale->getPayment()->getReturnCode();
-                echo "<pre>";
-                print_r($sale->getPayment());
-               die();
+//                echo $sale->getPayment()->getStatus();
+//                echo "-";
+//                echo $sale->getPayment()->getReturnCode();
+//                echo "<pre>";
+//                print_r($sale->getPayment());
+//               die();
                 if($sale->getPayment()->getStatus() == 2){
-                    $this->loadTemplate('retorno' , $sale->getPayment()->getTid());
-//                    header("Location: " . BASE_URL . 'retorno' . $sale->getPayment()->getTid());
-//                    exit;
-                  //Header("Location: retorno.php?cod=0&TID=" . $sale->getPayment()->getTid());
+                    $cod = 0;
+                    $dados['cod'] = $cod;
+                    $dados['info'] = $sale->getPayment();
+                    $this->loadTemplate('retorno', $dados);
+
                 }else{
-                    Header("Location: retorno.php?cod=1&status=".$sale->getPayment()->getStatus()."&erro=".$sale->getPayment()->getReturnCode());
+                    $cod = 1;
+                    $dados['cod'] = $cod;
+                    $dados['info'] = $sale->getPayment();
+                    $dados['erro'] = $sale->getPayment()->getReturnCode();
+                    $this->loadTemplate('retorno', $dados);
+
                 }
 
                 // Com o ID do pagamento, podemos fazer sua captura, se ela não tiver sido capturada ainda

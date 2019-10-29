@@ -8,10 +8,18 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/developercielo/api-3.0-php" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+    </include_path>
   </component>
   <component name="ProjectId" id="1Sk5BZ8pdlKhLqwqqh1E2QE0zgF" />
   <component name="PropertiesComponent">
@@ -50,7 +58,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572255023020</updated>
-      <workItem from="1572255028299" duration="16893000" />
+      <workItem from="1572255028299" duration="25227000" />
+      <workItem from="1572340302115" duration="1263000" />
     </task>
     <servers />
   </component>
