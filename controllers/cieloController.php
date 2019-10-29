@@ -106,7 +106,12 @@ class cieloController extends controller{
                 //$erro = $e->getCieloError()->getMessage() . "-" . $e->getCieloError()->getCode();
                 //echo $erro; die();
                 //echo $e->getCieloError()->code . $e->getCieloError()->message;
-                Header("Location: retorno.php?cod=2&erro=" . $e->getCieloError()->getCode());
+                $cod = 2;
+                $dados['cod'] = $cod;
+                $dados['info'] = $sale->getPayment();
+                $dados['erro'] = $e->getCieloError()->getCode();
+                $this->loadTemplate('retorno', $dados);
+                //Header("Location: retorno.php?cod=2&erro=" . $e->getCieloError()->getCode());
             }
         }
 

@@ -55,7 +55,7 @@ Um exemplo rápido e simples, que abre as portas para aplicações mais complexa
 			</div>
 			<?php }else{ ?>
 			<div class="alert alert-danger" role="alert">
-			  Falha ao realizar o pagamento! <?php echo "Erro Integração : " . $_erro; ?>
+			  Falha ao realizar o pagamento! <?php echo "Erro Integração : " . $erro; ?>
 			</div>				
 			<?php }}?>
 			
