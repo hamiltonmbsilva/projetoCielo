@@ -199,6 +199,27 @@
                 </div>
                 <div class="row">
                     <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">Parcelas</label>
+                        <select class="custom-select d-block w-100" name="parcelas" id="parcelas" required>
+                            <option value="">Parcelas...</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            Expiration date required
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
                         <label for="cc-expiration">Vencimento</label>
                         <input type="text" class="form-control" name="cc-expiration" id="cc-expiration" placeholder="" required>
                         <div class="invalid-feedback">

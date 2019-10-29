@@ -34,6 +34,7 @@ class cieloController extends controller{
             $expiration = addslashes($_POST['cc-expiration']);
             $cvv = addslashes($_POST['cc-cvv']);
             $total = addslashes($_POST['total']);
+            $parcelas = addslashes($_POST['parcelas']);
 
 //            print_r($_POST);
 //            exit;
@@ -55,6 +56,10 @@ class cieloController extends controller{
 
             $payment->setCapture(1);
 
+            $numeroParcelas = intval( $total / $parcelas);
+//            print_r($numeroParcelas);
+//            exit;
+
             // Crie uma instância de Credit Card utilizando os dados de teste
             // esses dados estão disponíveis no manual de integração
             $payment->setType(Payment::PAYMENTTYPE_CREDITCARD)
@@ -62,6 +67,8 @@ class cieloController extends controller{
                 ->setExpirationDate($expiration)
                 ->setCardNumber($number)
                 ->setHolder($name . ' ' . $segundo_name);
+            
+            $payment->setInstallments($numeroParcelas);
 
 //          Crie o pagamento na Cielo
             try {
