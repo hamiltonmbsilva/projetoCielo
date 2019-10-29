@@ -22,7 +22,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="<?php echo BASE_URL?>/assets/images/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Projeto Cielo Cartão de Credito</h2>
+        <h2>Projeto Cielo Cartão de Debito</h2>
     </div>
 
     <div class="row">
@@ -75,25 +75,11 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-5 mb-3">
-            <label for="city">Outras forma de pagamentos</label>
-            <form method="POST" action="<?php echo BASE_URL; ?>/cielo/payment_redirect">
-                <select class="custom-select d-block w-100" name="payment" id="city" required>
-                    <option value="">Escolha outra forma de Pagemento</option>
-                    <option value="debito">Debito</option>
-                    <option value="boleto">Boleto</option>
-                </select>
-                <br>
-                <input type="submit" value="Comprar" class="btn btn-primary btn-lg btn-block" />
-            </form>
 
-        </div>
-        <br>
-        <br>
 
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Informações do Cliente</h4>
-            <form class="needs-validation" novalidate action="<?php echo BASE_URL; ?>/cielo/index" method="POST">
+            <form class="needs-validation" novalidate action="<?php echo BASE_URL; ?>/debito/index" method="POST">
                 <input type="hidden" name="total" id="total" value="20">
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -190,7 +176,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="cc-number">Cartão Numero</label>
+                        <label for="cc-number">Numero do Cartão</label>
                         <input type="text" class="form-control" name="cc-number" id="cc-number" placeholder="" required>
                         <div class="invalid-feedback">
                             Credit card number is required
@@ -214,7 +200,7 @@
                     </div>
                 </div>
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Fazer compra pelo Cartão de Credito</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
             </form>
         </div>
     </div>

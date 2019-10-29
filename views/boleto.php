@@ -22,7 +22,7 @@
 <div class="container">
     <div class="py-5 text-center">
         <img class="d-block mx-auto mb-4" src="<?php echo BASE_URL?>/assets/images/bootstrap-solid.svg" alt="" width="72" height="72">
-        <h2>Projeto Cielo Cartão de Credito</h2>
+        <h2>Projeto Cielo Boleto</h2>
     </div>
 
     <div class="row">
@@ -75,25 +75,11 @@
                 </div>
             </form>
         </div>
-        <div class="col-md-5 mb-3">
-            <label for="city">Outras forma de pagamentos</label>
-            <form method="POST" action="<?php echo BASE_URL; ?>/cielo/payment_redirect">
-                <select class="custom-select d-block w-100" name="payment" id="city" required>
-                    <option value="">Escolha outra forma de Pagemento</option>
-                    <option value="debito">Debito</option>
-                    <option value="boleto">Boleto</option>
-                </select>
-                <br>
-                <input type="submit" value="Comprar" class="btn btn-primary btn-lg btn-block" />
-            </form>
 
-        </div>
-        <br>
-        <br>
 
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Informações do Cliente</h4>
-            <form class="needs-validation" novalidate action="<?php echo BASE_URL; ?>/cielo/index" method="POST">
+            <form class="needs-validation" novalidate action="<?php echo BASE_URL; ?>/boleto/index" method="POST">
                 <input type="hidden" name="total" id="total" value="20">
                 <div class="row">
                     <div class="col-md-6 mb-3">
@@ -111,110 +97,96 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="ident">Identidade </span></label>
+                        <input type="ident" class="form-control" name="ident" id="ident" placeholder="Identidade" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="cpf">CPF </span></label>
+                        <input type="cpf" class="form-control" name="cpf" id="cpf" placeholder="CPF" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                        </div>
+                    </div>
+                </div>
+                <br>
 
 
+                <h4 class="mb-3">Endereço</h4>
+                <hr class="mb-4">
 
-                <div class="mb-3">
-                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="you@example.com">
-                    <div class="invalid-feedback">
-                        Please enter a valid email address for shipping updates.
+                <div class="row">
+                    <div class="col-md-8 mb-3">
+                        <label for="address">Rua</label>
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Rua" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="numero">Numero</label>
+                        <input type="text" class="form-control" name="numero" id="numero" placeholder="Numero" required>
+                        <div class="invalid-feedback">
+                            Please enter your shipping address.
+                        </div>
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="address">Endereço</label>
-                    <input type="text" class="form-control" name="address" id="address" placeholder="1234 Main St" required>
-                    <div class="invalid-feedback">
-                        Please enter your shipping address.
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="bairro">Bairro </span></label>
+                        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro">
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label for="city">Cidade</label>
+                        <input type="text" class="form-control" name="city" id="city" placeholder="Cidade">
+                        <div class="invalid-feedback">
+                            Please select a valid city.
+                        </div>
                     </div>
                 </div>
 
-                <div class="mb-3">
-                    <label for="address2">Endereço 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" name="address2" id="address2" placeholder="Apartment or suite">
-                </div>
 
                 <div class="row">
 
 
                     <div class="col-md-4 mb-3">
                         <label for="state">Estado</label>
-                        <select class="custom-select d-block w-100" name="state" id="state" required>
-                            <option value="">Choose...</option>
-                            <option>SP</option>
-                            <option>MG</option>
-                            <option>RJ</option>
-                        </select>
+                        <input type="text" class="form-control" name="state" id="state" placeholder="Estado">
                         <div class="invalid-feedback">
                             Please provide a valid state.
                         </div>
                     </div>
 
 
-                    <div class="col-md-5 mb-3">
-                        <label for="city">Cidade</label>
-                        <select class="custom-select d-block w-100" name="city" id="city" required>
-                            <option value="">Choose...</option>
-                            <option>Campinas</option>
-                            <option>Juiz de Fora</option>
-                            <option>Matias Barbosa</option>
-                        </select>
+                    <div class="col-md-4 mb-3">
+                        <label for="country">Pais</label>
+                        <input type="text" class="form-control" name="country" id="country" placeholder="Pais">
+
                         <div class="invalid-feedback">
                             Please select a valid city.
                         </div>
                     </div>
 
-
-
-                    <div class="col-md-3 mb-3">
-                        <label for="zip">CEP</label>
+                    <div class="col-md-4 mb-3">
+                        <label for="zip">Zip</label>
                         <input type="text" class="form-control" name="zip" id="zip" placeholder="" required>
                         <div class="invalid-feedback">
                             Zip code required.
                         </div>
                     </div>
                 </div>
+
+
+
                 <hr class="mb-4">
-
-
-                <h4 class="mb-3">Pagamento</h4>
-
-
-                <div class="row">
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-flag">Bandeira</label>
-                        <input type="text" class="form-control" name="cc-flag" id="cc-flag" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Flag is required
-                        </div>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="cc-number">Cartão Numero</label>
-                        <input type="text" class="form-control" name="cc-number" id="cc-number" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Credit card number is required
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-expiration">Vencimento</label>
-                        <input type="text" class="form-control" name="cc-expiration" id="cc-expiration" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Expiration date required
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3">
-                        <label for="cc-cvv">CVV</label>
-                        <input type="text" class="form-control" name="cc-cvv" id="cc-cvv" placeholder="" required>
-                        <div class="invalid-feedback">
-                            Security code required
-                        </div>
-                    </div>
-                </div>
-                <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Fazer compra pelo Cartão de Credito</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Comprar pelo Boleto</button>
             </form>
         </div>
     </div>

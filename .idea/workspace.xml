@@ -24,12 +24,13 @@
   <component name="ProjectId" id="1Sk5BZ8pdlKhLqwqqh1E2QE0zgF" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../presentearte" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/controllers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\wamp64\www\projetocielo\controllers" />
       <recent name="D:\wamp64\www\projetocielo\views" />
       <recent name="D:\wamp64\www\projetocielo\assets\js" />
       <recent name="D:\wamp64\www\projetocielo\assets\images" />
@@ -59,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572255023020</updated>
       <workItem from="1572255028299" duration="25227000" />
-      <workItem from="1572340302115" duration="2058000" />
+      <workItem from="1572340302115" duration="14516000" />
     </task>
     <servers />
   </component>

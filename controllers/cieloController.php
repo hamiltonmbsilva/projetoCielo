@@ -116,23 +116,31 @@ class cieloController extends controller{
         }
 
 
-
-
-//        print_r($_POST['firstName']);
-//        exit;
-
-
-
-
     }
 
-    public function retorno(){
+    public function payment_redirect(){
 
-        $dados = array();
+        if (!empty($_POST['payment'])){
 
+            $payment = $_POST['payment'];
 
+            switch ($payment){
+                case 'debito':
+                    $this->loadTemplate('debito');
+                    exit;
+                break;
+                case 'boleto':
 
-        $this->loadTemplate('retorno', $dados);
+                    $this->loadTemplate('boleto');
+                    exit;
+
+                 break;
+
+            }
+        }
+        header("Location: ".BASE_URL."home");
+
+       // $this->loadTemplate('retorno', $dados);
     }
 
 }

@@ -30,20 +30,7 @@ Um exemplo rápido e simples, que abre as portas para aplicações mais complexa
         
         <div class="col-md-12">
 <?php
-//                            echo $info->getStatus();
-//                            echo "-";
-//                            echo $info->getReturnCode();
-//                            echo "<pre>";
-//                            print_r($viewData);
-//                            print_r($cod['cod']);
-//
-//
-//                           die();
 
-//            print_r($viewData->getReturnCode());
-//            exit;
-//            print_r($erro);
-//            exit;
 			if(isset($cod)){
 			if($cod == "0"){ ?>
 			<div class="alert alert-success" role="alert">
